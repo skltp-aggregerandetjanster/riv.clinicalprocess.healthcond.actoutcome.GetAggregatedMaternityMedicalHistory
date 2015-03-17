@@ -118,18 +118,18 @@
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="ReferralOutcomeType">
+  <xs:complexType name="MaternityMedicalHistoryType">
     <xs:sequence>
-      <xs:element name="referralOutcomeHeader" type="tns:PatientSummaryHeaderType"/>
-      <xs:element name="referralOutcomeBody" type="tns:ReferralOutcomeBodyType"/>
+      <xs:element name="MaternityMedicalHistoryHeader" type="tns:PatientSummaryHeaderType"/>
+      <xs:element name="MaternityMedicalHistoryBody" type="tns:MaternityMedicalHistoryBodyType"/>
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="ReferralOutcomeBodyType">
+  <xs:complexType name="MaternityMedicalHistoryBodyType">
     <xs:sequence>
-      <xs:element name="referralOutcomeTypeCode" type="codes:ReferralOutcomeTypeCodeEnum"/>
-      <xs:element name="referralOutcomeTitle" type="xs:string"/>
-      <xs:element name="referralOutcomeText" type="xs:string"/>
+      <xs:element name="MaternityMedicalHistoryTypeCode" type="codes:MaternityMedicalHistoryTypeCodeEnum"/>
+      <xs:element name="MaternityMedicalHistoryTitle" type="xs:string"/>
+      <xs:element name="MaternityMedicalHistoryText" type="xs:string"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="clinicalInformation" type="tns:ClinicalInformationType"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="act" type="tns:ActType"/>
       <xs:element name="referral" type="tns:ReferralType"/>
@@ -543,7 +543,7 @@
       <xs:enumeration value="multipart/x-hl7-cda-level1"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="ReferralOutcomeTypeCodeEnum">
+  <xs:simpleType name="MaternityMedicalHistoryTypeCodeEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SS">
         <xs:annotation>
@@ -746,7 +746,7 @@
       <xs:enumeration value="multipart/x-hl7-cda-level1"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="ReferralOutcomeTypeCodeEnum">
+  <xs:simpleType name="MaternityMedicalHistoryTypeCodeEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SS">
         <xs:annotation>

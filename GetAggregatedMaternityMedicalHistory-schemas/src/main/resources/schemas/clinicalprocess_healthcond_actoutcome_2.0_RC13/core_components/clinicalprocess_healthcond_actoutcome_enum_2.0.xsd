@@ -146,7 +146,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="ReferralOutcomeTypeCodeEnum">
+    <xs:simpleType name="MaternityMedicalHistoryTypeCodeEnum">
         <xs:restriction base="xs:string">
             <xs:enumeration value="SS">
                 <xs:annotation>

@@ -43,20 +43,20 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ReferralOutcomeType">
+    <xs:complexType name="MaternityMedicalHistoryType">
         <xs:sequence>
-            <xs:element name="referralOutcomeHeader" type="tns:PatientSummaryHeaderType"/>
-            <xs:element name="referralOutcomeBody" type="tns:ReferralOutcomeBodyType"/>
+            <xs:element name="MaternityMedicalHistoryHeader" type="tns:PatientSummaryHeaderType"/>
+            <xs:element name="MaternityMedicalHistoryBody" type="tns:MaternityMedicalHistoryBodyType"/>
             <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ReferralOutcomeBodyType">
+    <xs:complexType name="MaternityMedicalHistoryBodyType">
         <xs:sequence>
-            <xs:element name="referralOutcomeTypeCode" type="codes:ReferralOutcomeTypeCodeEnum"/>
-            <xs:element name="referralOutcomeTitle" type="xs:string"/>
-            <xs:element name="referralOutcomeText" type="xs:string"/>
+            <xs:element name="MaternityMedicalHistoryTypeCode" type="codes:MaternityMedicalHistoryTypeCodeEnum"/>
+            <xs:element name="MaternityMedicalHistoryTitle" type="xs:string"/>
+            <xs:element name="MaternityMedicalHistoryText" type="xs:string"/>
             <xs:element name="clinicalInformation" type="tns:ClinicalInformationType" minOccurs="0"
                 maxOccurs="unbounded"/>
             <xs:element name="act" type="tns:ActType" minOccurs="0" maxOccurs="unbounded"/>
@@ -493,7 +493,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="HealthcareProfessionalType_GetReferralOutcome">
+    <xs:complexType name="HealthcareProfessionalType_GetMaternityMedicalHistory">
         <xs:annotation>
             <xs:documentation>
                 Information om hälso- och omsorgspesonal
