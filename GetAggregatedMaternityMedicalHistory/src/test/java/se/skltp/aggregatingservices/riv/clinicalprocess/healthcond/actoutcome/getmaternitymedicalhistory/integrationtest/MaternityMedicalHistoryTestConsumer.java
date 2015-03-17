@@ -7,10 +7,10 @@ import javax.xml.ws.Holder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import se.riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistory.v2.rivtabp21.GetMaternityMedicalHistoryResponderInterface;
-import se.riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryResponseType;
-import se.riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.PersonIdType;
+import riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistory.v2.rivtabp21.GetMaternityMedicalHistoryResponderInterface;
+import riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryResponseType;
+import riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.PersonIdType;
 import se.skltp.aggregatingservices.MaternityMedicalHistoryMuleServer;
 import se.skltp.agp.riv.interoperability.headers.v1.ProcessingStatusType;
 import se.skltp.agp.test.consumer.AbstractTestConsumer;
@@ -30,12 +30,12 @@ public class MaternityMedicalHistoryTestConsumer extends AbstractTestConsumer<Ge
         Holder<ProcessingStatusType> processingStatusHolder = new Holder<ProcessingStatusType>();
         long now = System.currentTimeMillis();
         consumer.callService("logical-adress", personnummer, processingStatusHolder, responseHolder);
-        log.info("Returned #maternity medical record= " + responseHolder.value.getMaternityMedicalRecord().size() + " in " + (System.currentTimeMillis() - now) + " ms.");	
+        log.info("Returned #maternity medical record= " + responseHolder.value.getMaternityMedicalRecord().size() + " in " + (System.currentTimeMillis() - now) + " ms.");
     }
 
     public MaternityMedicalHistoryTestConsumer(String serviceAddress, String senderId, String originalConsumerHsaId) {
         // Setup a web service proxy for communication using HTTPS with Mutual Authentication
-        super(GetMaternityMedicalHistoryResponderInterface.class, serviceAddress, senderId, originalConsumerHsaId); 
+        super(GetMaternityMedicalHistoryResponderInterface.class, serviceAddress, senderId, originalConsumerHsaId);
     }
 
     public void callService(String logicalAddress, String id, Holder<ProcessingStatusType> processingStatusHolder, Holder<GetMaternityMedicalHistoryResponseType> responseHolder) {

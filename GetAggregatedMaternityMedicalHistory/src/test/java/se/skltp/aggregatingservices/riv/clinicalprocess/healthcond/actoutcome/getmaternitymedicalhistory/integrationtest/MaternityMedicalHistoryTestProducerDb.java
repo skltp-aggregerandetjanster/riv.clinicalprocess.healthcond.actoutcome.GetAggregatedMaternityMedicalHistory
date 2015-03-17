@@ -6,18 +6,18 @@ import java.math.BigInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import se.riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryResponseType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.CVType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.HealthcareProfessionalType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.LegalAuthenticatorType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.MaternityMedicalRecordBodyType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.MaternityMedicalRecordType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.OrgUnitType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.PQType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.PatientSummaryHeaderType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.PersonIdType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.PregnancyCheckupRecordType;
-import se.riv.clinicalprocess.healthcond.actoutcome.v2.RegistrationRecordType;
+import riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryResponseType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.CVType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.HealthcareProfessionalType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.LegalAuthenticatorType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.MaternityMedicalRecordBodyType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.MaternityMedicalRecordType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.OrgUnitType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.PQType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.PatientSummaryHeaderType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.PersonIdType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.PregnancyCheckupRecordType;
+import riv.clinicalprocess.healthcond.actoutcome.v2.RegistrationRecordType;
 import se.skltp.agp.test.producer.TestProducerDb;
 
 public class MaternityMedicalHistoryTestProducerDb extends TestProducerDb {
@@ -48,15 +48,15 @@ public class MaternityMedicalHistoryTestProducerDb extends TestProducerDb {
         response.setMaternityMedicalRecordBody(generateRecordBody());
         return response;
     }
-	
-	
+
+
     protected PQType buildPQ(String unit, double value) {
 		PQType pq = new PQType();
 		pq.setUnit(unit);
 		pq.setValue(value);
 		return pq;
     }
-    
+
     protected MaternityMedicalRecordBodyType generateRecordBody() {
     	MaternityMedicalRecordBodyType body = new MaternityMedicalRecordBodyType();
     	PregnancyCheckupRecordType pregnancyCheckUpRecord = new PregnancyCheckupRecordType();
@@ -116,7 +116,7 @@ public class MaternityMedicalHistoryTestProducerDb extends TestProducerDb {
 		        	orgUnit.setOrgUnitName("Vårdcentralen Molnet");
 		        } else {
 		        	orgUnit.setOrgUnitName("Vårdcentralen Stacken");
-		        }	    		
+		        }
 	    		author.setHealthcareProfessionalOrgUnit(orgUnit);
 	    		CVType roleCode = new CVType();
 	    		roleCode.setCode("205011");
@@ -127,9 +127,9 @@ public class MaternityMedicalHistoryTestProducerDb extends TestProducerDb {
 	    		roleCode.setOriginalText("Barnmorska, mottagning/rådgivning");
 	    		author.setHealthcareProfessionalRoleCode(roleCode);
 	    	}
-	    	header.setAccountableHealthcareProfessional(author);	    	
+	    	header.setAccountableHealthcareProfessional(author);
 	    	header.setDocumentTime("20130707010203");
-			
+
 	        header.setCareContactId(businessObjectId);
 	    	header.setDocumentId("MATER-" + (int)(Math.random()*10000));
 	    	header.setDocumentTime("20130707010203");
@@ -145,12 +145,12 @@ public class MaternityMedicalHistoryTestProducerDb extends TestProducerDb {
 				patientId.setType("1.2.752.129.2.1.3.1");
 	    	}
 			header.setPatientId(patientId);
-	    	
+
 	    	header.setSourceSystemHSAId(logicalAddress);
-			
+
     	}
     	return header;
     }
-	
-	
+
+
 }
