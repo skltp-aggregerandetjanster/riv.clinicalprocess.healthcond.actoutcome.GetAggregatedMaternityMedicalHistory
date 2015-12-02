@@ -6,7 +6,7 @@
 		<parent>
 			<groupId>se.skltp.aggregatingservices.riv.clinicalprocess.healthcond.actoutcome</groupId>
 			<artifactId>GetAggregatedMaternityMedicalHistory-parent</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.4-SNAPSHOT</version>
 		</parent>
 
     <artifactId>GetAggregatedMaternityMedicalHistory-teststub</artifactId>
@@ -14,7 +14,6 @@
     <name>GetAggregatedMaternityMedicalHistory-teststub</name>
 
     <properties>
-        <skltp.agp.version>1.2.3</skltp.agp.version>
         <GetAggregatedMaternityMedicalHistory.version>${project.version}</GetAggregatedMaternityMedicalHistory.version>
     </properties>
 
