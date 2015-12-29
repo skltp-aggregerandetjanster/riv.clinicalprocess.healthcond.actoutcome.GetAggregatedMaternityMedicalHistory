@@ -24,7 +24,6 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
     <!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + JAXB) -->
     <schema.path>${basedir}/src/main/resources/schemas</schema.path>
     <schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
-    <cxf.version>2.5.1</cxf.version>
   </properties>
 
   <dependencies>
@@ -42,17 +41,16 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
       <plugin>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-codegen-plugin</artifactId>
-        <version>${cxf.version}</version>
+        <configuration>
+          <!-- fork to avoid encoding issues, ref: soi-toolkit issue 360 -->
+          <fork>once</fork>
+          <additionalJvmArgs>-Dfile.encoding=UTF-8</additionalJvmArgs>
+        </configuration>
         <executions>
           <execution>
-            <id>generate-sources</id>
+            <id>ws.generate</id>
             <phase>generate-sources</phase>
             <configuration>
-              <fork>once</fork>
-              <additionalJvmArgs>-Dfile.encoding=UTF-8</additionalJvmArgs>
-              <defaultOptions>
-                <frontEnd>jaxws21</frontEnd>
-              </defaultOptions>
               <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
               <wsdlOptions>
                 <wsdloption>
