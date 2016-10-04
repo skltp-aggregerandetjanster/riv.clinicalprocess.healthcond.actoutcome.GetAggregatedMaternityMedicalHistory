@@ -25,6 +25,7 @@ import java.util.List;
 import javax.xml.ws.Holder;
 import javax.xml.ws.soap.SOAPFaultException;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,7 @@ import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
 import riv.clinicalprocess.healthcond.actoutcome.getmaternitymedicalhistoryresponder.v2.GetMaternityMedicalHistoryResponseType;
 import riv.clinicalprocess.healthcond.actoutcome.v2.MaternityMedicalRecordType;
+import se.skltp.agp.cache.TakCacheBean;
 import se.skltp.agp.riv.interoperability.headers.v1.ProcessingStatusRecordType;
 import se.skltp.agp.riv.interoperability.headers.v1.ProcessingStatusType;
 import se.skltp.agp.test.consumer.AbstractAggregateIntegrationTest;
@@ -58,9 +60,16 @@ public class MaternityMedicalHistoryIntegrationTest extends AbstractAggregateInt
                 //			"aggregating-services-common.xml," +
                 //			"aggregating-service.xml," +
                 "teststub-services/engagemangsindex-teststub-service.xml," +
-                "teststub-services/service-producer-teststub-service.xml";
-    }
+                "teststub-services/service-producer-teststub-service.xml," +
+                "teststub-non-default-services/tak-teststub-service.xml";
 
+    }
+    
+    @Before
+    public void loadTakCache() throws Exception {
+    	final TakCacheBean takCache = (TakCacheBean) muleContext.getRegistry().lookupObject("takCacheBean");
+    	takCache.updateCache();
+    }
     /**
      * Perform a test that is expected to return zero hits
      */
