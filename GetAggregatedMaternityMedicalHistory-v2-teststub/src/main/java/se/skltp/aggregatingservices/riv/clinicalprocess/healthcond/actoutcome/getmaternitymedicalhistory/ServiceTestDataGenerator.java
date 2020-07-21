@@ -118,7 +118,7 @@ public class ServiceTestDataGenerator extends TestDataGenerator {
   }
 
 
-  protected MaternityMedicalRecordBodyType generateRecordBody() {
+  private MaternityMedicalRecordBodyType generateRecordBody() {
     MaternityMedicalRecordBodyType body = new MaternityMedicalRecordBodyType();
     PregnancyCheckupRecordType pregnancyCheckUpRecord = new PregnancyCheckupRecordType();
     {
@@ -157,7 +157,7 @@ public class ServiceTestDataGenerator extends TestDataGenerator {
     return body;
   }
 
-  protected PQType buildPQ(String unit, double value) {
+  private PQType buildPQ(String unit, double value) {
     PQType pq = new PQType();
     pq.setUnit(unit);
     pq.setValue(value);

@@ -18,11 +18,8 @@ public class ServiceConfiguration extends TestProducerConfiguration {
   public ServiceConfiguration() {
     setProducerAddress("http://localhost:8083/vp");
     setServiceClass(GetMaternityMedicalHistoryResponderInterface.class.getName());
-    setServiceNamespace(
-        "urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2");
-    setPortName(
-        GetMaternityMedicalHistoryResponderService.GetMaternityMedicalHistoryResponderPort
-            .toString());
+    setServiceNamespace("urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2");
+    setPortName(GetMaternityMedicalHistoryResponderService.GetMaternityMedicalHistoryResponderPort.toString());
     setWsdlPath(SCHEMA_PATH);
     setTestDataGeneratorClass(ServiceTestDataGenerator.class.getName());
     setServiceTimeout(27000);
